@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Brain, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -41,7 +43,7 @@ const Navbar = () => {
               {link}
             </a>
           ))}
-          <Button size="sm" className="rounded-lg font-semibold">Get Started</Button>
+          <Button size="sm" className="rounded-lg font-semibold" onClick={() => navigate("/dashboard")}>Get Started</Button>
         </div>
 
         <button
@@ -68,7 +70,7 @@ const Navbar = () => {
               {link}
             </a>
           ))}
-          <Button size="sm" className="w-full mt-2 rounded-lg font-semibold">Get Started</Button>
+          <Button size="sm" className="w-full mt-2 rounded-lg font-semibold" onClick={() => navigate("/dashboard")}>Get Started</Button>
         </motion.div>
       )}
     </motion.nav>
